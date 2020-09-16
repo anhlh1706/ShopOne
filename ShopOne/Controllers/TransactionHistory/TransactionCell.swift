@@ -170,7 +170,8 @@ final class TransactionCell: UITableViewCell {
         viewDetailButton.bottomAnchor == detailView.bottomAnchor - 5
     }
     
-    @objc func showMoreDetail() {
+    @objc
+    func showMoreDetail() {
         showMore?(transactions)
     }
     
@@ -473,7 +474,7 @@ final class TransactionCell: UITableViewCell {
 // MARK: - CAAnimationDelegate
 extension TransactionCell: CAAnimationDelegate {
     
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {//swiftlint:disable:this cyclomatic_complexity
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         //start animation
         if anim == firstImageView.layer.animation(forKey: "firstImageView") {
             firstImageView.alpha = 0

@@ -79,6 +79,7 @@ final class AboutViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         stackView.alpha = 0
     }
     

@@ -34,8 +34,11 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
+}
+
+private extension HomeViewController {
     
-    private func setupView() {
+    func setupView() {
         let scrollView = UIScrollView()
         
         // MARK: UI Position
@@ -100,7 +103,8 @@ final class HomeViewController: UIViewController {
     }
     
     // MARK: Actions
-    @objc func addToCartAction() {
+    @objc
+    func addToCartAction() {
         view.endEditing(false)
         
         guard let quantity = Int(topOrderView.quantityField.text!.replacingOccurrences(of: ",", with: "")) else {
@@ -111,12 +115,14 @@ final class HomeViewController: UIViewController {
         presenter.addProductToCart()
     }
     
-    @objc func payAction() {
+    @objc
+    func payAction() {
         view.endEditing(false)
         presenter.pay()
     }
     
-    @objc func showSelectView() {
+    @objc
+    func showSelectView() {
         let selectVC = HomeSelectViewController(products: presenter.storageItems.sorted { $0.name < $1.name })
         selectVC.didSelectProduct = presenter.take
         present(selectVC, animated: true, completion: nil)
@@ -124,13 +130,14 @@ final class HomeViewController: UIViewController {
     
 }
 
+// MARK: - ViewModel Delegate
 extension HomeViewController: HomeDelegate {
     func didAddItemToCart(success: Bool, reloadIndex: Int?) {
         guard success else {
             AlertService.show(in: self, msg: R.String.pickProductFirst)
             return
         }
-
+        
         if !presenter.cartItems.isEmpty {
             enablePayButton()
         }
@@ -182,7 +189,7 @@ extension HomeViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         let newValueString = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-                                                          .replacingOccurrences(of: ",", with: "")
+            .replacingOccurrences(of: ",", with: "")
         if let newInt = Int(newValueString), newValueString.count < 6 {
             textField.text = newInt.addedSeparator()
         }

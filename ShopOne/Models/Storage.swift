@@ -3,7 +3,7 @@
 import UIKit.UIImage
 import RealmSwift
 
-class Storage: Object, Product {
+final class Storage: Object, Product {
 
     @objc dynamic var id = 0
     @objc dynamic var name = ""

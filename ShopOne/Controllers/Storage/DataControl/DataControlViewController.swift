@@ -53,11 +53,9 @@ final class DataControlViewController: UIViewController, UINavigationControllerD
         addKeyBoardObserver()
         presentationController?.delegate = self
     }
-    
-    func addKeyBoardObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
+}
+
+private extension DataControlViewController {
     
     func setupView() {
         // MARK: - Position
@@ -133,6 +131,11 @@ final class DataControlViewController: UIViewController, UINavigationControllerD
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
+    func addKeyBoardObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     @objc
     func keyboardWillShow(notification: NSNotification) {
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
@@ -194,20 +197,6 @@ final class DataControlViewController: UIViewController, UINavigationControllerD
         return Storage(id: id, name: name, price: price, quantity: quantity, image: profileImageView.image!)
     }
     
-    @objc func addAction() {
-        guard let addingProduct = getProductFromFields() else {
-            return
-        }
-        presenter.addProduct(addingProduct)
-    }
-    
-    @objc func editAction() {
-        guard let editingProduct = getProductFromFields() else {
-            return
-        }
-        presenter.editProduct(editingProduct)
-    }
-    
     func refreshView() {
         view.endEditing(true)
         
@@ -215,12 +204,30 @@ final class DataControlViewController: UIViewController, UINavigationControllerD
         profileImageView.image = R.Image.placeholder.scaled(toSize: CGSize(width: stackWidth, height: stackWidth))
     }
     
-    @objc func toEditCategory() {
+    @objc
+    func addAction() {
+        guard let addingProduct = getProductFromFields() else {
+            return
+        }
+        presenter.addProduct(addingProduct)
+    }
+    
+    @objc
+    func editAction() {
+        guard let editingProduct = getProductFromFields() else {
+            return
+        }
+        presenter.editProduct(editingProduct)
+    }
+    
+    @objc
+    func toEditCategory() {
         let categoryVC = CategoryViewController(categories: presenter.categories, realmService: presenter.realmService)
         present(UINavigationController(rootViewController: categoryVC), animated: true, completion: nil)
     }
 }
 
+// MARK: - ViewModel Delegate
 extension DataControlViewController: DataControlDelegate {
     func didAddProduct() {
         AlertService.showSuccess(in: self)

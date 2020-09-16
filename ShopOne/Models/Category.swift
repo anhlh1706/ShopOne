@@ -3,7 +3,7 @@
 import Foundation
 import RealmSwift
 
-class Category: Object {
+final class Category: Object {
     
     @objc dynamic var id = 0
     @objc dynamic var title = ""

@@ -314,11 +314,11 @@
 		E644B0D424BFE5B5007437F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E644B0D524BFE5B5007437F7 /* Storage.swift */,
-				E644B0D624BFE5B5007437F7 /* RealmService.swift */,
-				E644B0D724BFE5B5007437F7 /* Category.swift */,
 				E644B0D824BFE5B5007437F7 /* Product.swift */,
+				E644B0D524BFE5B5007437F7 /* Storage.swift */,
+				E644B0D724BFE5B5007437F7 /* Category.swift */,
 				E644B0D924BFE5B5007437F7 /* Transaction.swift */,
+				E644B0D624BFE5B5007437F7 /* RealmService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

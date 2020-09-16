@@ -3,7 +3,7 @@
 import Foundation
 import RealmSwift
 
-class RealmService {
+final class RealmService {
     
     var storageAutoId: Int {
         realm.objects(Storage.self).last?.id ?? 0

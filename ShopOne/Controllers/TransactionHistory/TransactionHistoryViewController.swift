@@ -24,12 +24,27 @@ final class TransactionHistoryViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .background
         transactions = realmService.realm.objects(Transaction.self)
         
+        fadeIn()
         updateTableView()
         setupView()
         addObserver()
+    }
+    
+    func fadeIn() {
+        tableView.translateAndFade(as: .transitionIn,
+                                   animationStyle: UIViewAnimationStyle.transitionAnimationStyle,
+                                   percentageEndPoint: 0.4,
+                                   translate: .init(x: 0, y: 72))
+        
+        tableView.visibleCells.enumerated().forEach { (index, cell) in
+            cell.translateAndFade(as: .transitionIn,
+                                  animationStyle: UIViewAnimationStyle.transitionAnimationStyle,
+                                  percentageEndPoint: 0.4,
+                                  translate: .init(x: 0, y: CGFloat(index) * 16))
+        }
     }
     
     func addObserver() {

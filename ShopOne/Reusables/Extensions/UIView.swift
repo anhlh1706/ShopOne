@@ -168,4 +168,90 @@ extension UIView {
     func addSubviews(_ views: [UIView]) {
         views.forEach { addSubview($0) }
     }
+    
+    class func animate(withStyle style: UIViewAnimationStyle,
+                              delay: TimeInterval = 0,
+                              animations: @escaping () -> Swift.Void,
+                              completion: ((Bool) -> Swift.Void)? = nil) {
+
+        animate(withDuration: style.duration,
+                delay: delay,
+                usingSpringWithDamping: style.dampingRatio,
+                initialSpringVelocity: style.velocity,
+                options: style.options,
+                animations: animations,
+                completion: completion)
+    }
+    
+    func translateAndFade(as direction: TransitionalDirection,
+                        animationStyle: UIViewAnimationStyle,
+                        percentageEndPoint: TimeInterval = 1,
+                        translate: CGPoint) {
+        
+        layer.removeAllAnimations()
+        
+        let duration = animationStyle.duration *
+            (direction == .transitionIn ? 1 - percentageEndPoint : percentageEndPoint)
+        let delay = animationStyle.duration - duration
+        
+        var mutatedAnimationStyle = animationStyle
+        mutatedAnimationStyle.duration = duration
+        
+        if direction == .transitionIn {
+            transform.tx = translate.x
+            transform.ty = translate.y
+            alpha = 0
+            UIView.animate(withStyle: mutatedAnimationStyle,
+                           delay: delay,
+                           animations: {
+                self.transform.tx = 0
+                self.transform.ty = 0
+                self.alpha = 1
+            })
+        }
+        
+        if direction == .transitionOut {
+            transform.tx = 0
+            transform.ty = 0
+            alpha = 1
+            UIView.animate(withStyle: mutatedAnimationStyle,
+                           animations: {
+                self.transform.tx = translate.x
+                self.transform.ty = translate.y
+                self.alpha = 0
+            })
+        }
+    }
+    
+    enum TransitionalDirection {
+        case transitionIn
+        case transitionOut
+    }
+}
+
+struct UIViewAnimationStyle {
+    
+    var duration: TimeInterval
+    
+    var delay: TimeInterval
+    
+    var dampingRatio: CGFloat
+    
+    var velocity: CGFloat
+    
+    var options: UIView.AnimationOptions
+    
+    init(duration: TimeInterval = 0.35,
+         delay: TimeInterval = 0,
+         dampingRatio: CGFloat = 1,
+         velocity: CGFloat = 0,
+         options: UIView.AnimationOptions = [.allowUserInteraction]) {
+        self.duration = duration
+        self.delay = delay
+        self.dampingRatio = dampingRatio
+        self.velocity = velocity
+        self.options = options
+    }
+    
+    static let transitionAnimationStyle = UIViewAnimationStyle(duration: 0.6, delay: 0, dampingRatio: 1, velocity: 0, options: .allowUserInteraction)
 }

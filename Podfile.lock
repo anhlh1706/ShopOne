@@ -1,0 +1,38 @@
+PODS:
+  - Anchorage (4.4.0)
+  - lottie-ios (3.1.8)
+  - Realm (5.3.6):
+    - Realm/Headers (= 5.3.6)
+  - Realm/Headers (5.3.6)
+  - RealmSwift (5.3.6):
+    - Realm (= 5.3.6)
+  - SkyFloatingLabelTextField (3.8.0)
+  - SwiftLint (0.40.1)
+
+DEPENDENCIES:
+  - Anchorage
+  - lottie-ios
+  - RealmSwift
+  - SkyFloatingLabelTextField
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - Anchorage
+    - lottie-ios
+    - Realm
+    - RealmSwift
+    - SkyFloatingLabelTextField
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  Anchorage: d7f02c4f9425b537053237aab11ae97e59b55f36
+  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
+  Realm: cd400dd7e5b5bb5c8ae9842eecd73792369e6ec0
+  RealmSwift: 99a16dbdee5d6dfb3d91d56088a9f8c15c0871d1
+  SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
+  SwiftLint: bbfed21bf4451dcbd0f5cdbee44a18e06cf91b12
+
+PODFILE CHECKSUM: 566fd787f1f21e6055891bd1bb1c9aff449c7cdc
+
+COCOAPODS: 1.9.3

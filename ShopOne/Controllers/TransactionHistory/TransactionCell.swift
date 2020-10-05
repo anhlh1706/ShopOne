@@ -474,7 +474,7 @@ final class TransactionCell: UITableViewCell {
 // MARK: - CAAnimationDelegate
 extension TransactionCell: CAAnimationDelegate {
     
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {//swiftlint:disable:this cyclomatic_complexity
         //start animation
         if anim == firstImageView.layer.animation(forKey: "firstImageView") {
             firstImageView.alpha = 0

@@ -7,7 +7,7 @@ final class MainTabbarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.tintColor = .newRed
-        
+        view.backgroundColor = .background
         let tabBarIconSize = CGSize(width: 24, height: 24)
         let realmService = RealmService.shared
         
@@ -24,8 +24,7 @@ final class MainTabbarController: UITabBarController {
         viewControllers = [
             UINavigationController(rootViewController: homeVC),
             UINavigationController(rootViewController: storageVC),
-            UINavigationController(rootViewController: transactionVC),
-            aboutVC
+            UINavigationController(rootViewController: transactionVC)
         ]
         
         delegate = self

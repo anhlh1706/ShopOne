@@ -10,5 +10,7 @@ pod 'RealmSwift'
 pod 'Anchorage'
 pod 'lottie-ios'
 pod 'SkyFloatingLabelTextField'
+pod 'RxSwift'
+pod 'RxCocoa'
 pod 'SwiftLint'
 end

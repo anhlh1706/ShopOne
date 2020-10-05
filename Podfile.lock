@@ -6,6 +6,12 @@ PODS:
   - Realm/Headers (5.3.6)
   - RealmSwift (5.3.6):
     - Realm (= 5.3.6)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
   - SkyFloatingLabelTextField (3.8.0)
   - SwiftLint (0.40.1)
 
@@ -13,6 +19,8 @@ DEPENDENCIES:
   - Anchorage
   - lottie-ios
   - RealmSwift
+  - RxCocoa
+  - RxSwift
   - SkyFloatingLabelTextField
   - SwiftLint
 
@@ -22,6 +30,9 @@ SPEC REPOS:
     - lottie-ios
     - Realm
     - RealmSwift
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - SkyFloatingLabelTextField
     - SwiftLint
 
@@ -30,9 +41,12 @@ SPEC CHECKSUMS:
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   Realm: cd400dd7e5b5bb5c8ae9842eecd73792369e6ec0
   RealmSwift: 99a16dbdee5d6dfb3d91d56088a9f8c15c0871d1
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
   SwiftLint: bbfed21bf4451dcbd0f5cdbee44a18e06cf91b12
 
-PODFILE CHECKSUM: 566fd787f1f21e6055891bd1bb1c9aff449c7cdc
+PODFILE CHECKSUM: b4fa231a79470c271f7688acde71b0269893fc68
 
 COCOAPODS: 1.9.3

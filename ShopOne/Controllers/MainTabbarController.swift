@@ -24,7 +24,8 @@ final class MainTabbarController: UITabBarController {
         viewControllers = [
             UINavigationController(rootViewController: homeVC),
             UINavigationController(rootViewController: storageVC),
-            UINavigationController(rootViewController: transactionVC)
+            UINavigationController(rootViewController: transactionVC),
+            aboutVC
         ]
         
         delegate = self

@@ -70,6 +70,8 @@
 		E644B12F24BFE5C3007437F7 /* runningCar.json in Resources */ = {isa = PBXBuildFile; fileRef = E644B12E24BFE5C3007437F7 /* runningCar.json */; };
 		E644B13224BFE9D1007437F7 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E644B13124BFE9D1007437F7 /* Colors.xcassets */; };
 		E644B13A24C04AD1007437F7 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E644B13924C04AD1007437F7 /* Config.swift */; };
+		E699CF72252C2A0300F7C654 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E699CF71252C2A0300F7C654 /* AppHelper.swift */; };
+		E6D49D70252B29DB0024DE22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D49D6F252B29DB0024DE22 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +145,8 @@
 		E644B13824C04A8F007437F7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		E644B13924C04AD1007437F7 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		E64909B424C156220038255F /* Testflight.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Testflight.xcconfig; sourceTree = "<group>"; };
+		E699CF71252C2A0300F7C654 /* AppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
+		E6D49D6F252B29DB0024DE22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FC032FD95FD47C56159F8135 /* Pods-ShopOne.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopOne.testflight.xcconfig"; path = "Target Support Files/Pods-ShopOne/Pods-ShopOne.testflight.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -216,6 +220,7 @@
 				E644B0B424BFE5B4007437F7 /* Button.swift */,
 				E644B0B524BFE5B4007437F7 /* TransactionDetailItemView.swift */,
 				E644B0B624BFE5B4007437F7 /* StorageSectionHeaderView.swift */,
+				E6D49D6F252B29DB0024DE22 /* ViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 		E644B0DA24BFE5B5007437F7 /* Reusables */ = {
 			isa = PBXGroup;
 			children = (
+				E699CF71252C2A0300F7C654 /* AppHelper.swift */,
 				E644B0DB24BFE5B5007437F7 /* R.swift */,
 				E644B0DC24BFE5B5007437F7 /* AlertService.swift */,
 				E644B0DD24BFE5B5007437F7 /* Extensions */,
@@ -540,6 +546,7 @@
 				E644B11F24BFE5B6007437F7 /* UICollectionView.swift in Sources */,
 				E644B11A24BFE5B6007437F7 /* Date+Formatter.swift in Sources */,
 				E644B0F524BFE5B6007437F7 /* NoDataView.swift in Sources */,
+				E6D49D70252B29DB0024DE22 /* ViewController.swift in Sources */,
 				E644B11924BFE5B6007437F7 /* AlertService.swift in Sources */,
 				E644B11724BFE5B6007437F7 /* Transaction.swift in Sources */,
 				E644B0FE24BFE5B6007437F7 /* StorageSectionHeaderView.swift in Sources */,
@@ -583,6 +590,7 @@
 				E644B13A24C04AD1007437F7 /* Config.swift in Sources */,
 				E644B11424BFE5B6007437F7 /* RealmService.swift in Sources */,
 				E644B10624BFE5B6007437F7 /* CategoryViewController.swift in Sources */,
+				E699CF72252C2A0300F7C654 /* AppHelper.swift in Sources */,
 				E644B11524BFE5B6007437F7 /* Category.swift in Sources */,
 				E644B10424BFE5B6007437F7 /* AddCategoryCell.swift in Sources */,
 				E644B11024BFE5B6007437F7 /* IconTableViewCell.swift in Sources */,

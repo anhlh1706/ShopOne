@@ -24,7 +24,6 @@ final class TransactionHistoryViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .background
         transactions = realmService.realm.objects(Transaction.self)
         
         fadeIn()

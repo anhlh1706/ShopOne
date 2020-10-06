@@ -2,6 +2,9 @@
 
 import UIKit
 import RealmSwift
+import NSObject_Rx
+import RxSwift
+import RxSwiftExt
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -12,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = .newRed
 
         initializeRealm()
+//        logResourcesCount()
         return true
     }
     
@@ -58,4 +62,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+}
+
+extension AppDelegate {
+    
+    private func logResourcesCount() {
+        #if DEBUG
+        _ = Observable<Int>
+            .interval(.seconds(1), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { _ in
+                print("Resource count \(RxSwift.Resources.total)")
+            })
+        #endif
+    }
+    
 }

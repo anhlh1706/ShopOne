@@ -2,39 +2,29 @@
 
 import Foundation
 import RealmSwift
+import RxSwift
+import RxCocoa
 
 protocol HomeDelegate: AnyObject {
     func didAddItemToCart(success: Bool, reloadIndex: Int?)
-    func didRemoveACardItem()
     func didPay()
-    func didSelectAProduct()
-    func didUnselectAProduct()
 }
 
-final class HomePresenter: NSObject {
+final class HomePresenter {
     
     let realmService: RealmService
     
     var storageItems: Results<Storage>
     
-    var cartItems = [Storage]()
+    var cartItems: BehaviorRelay<[Storage]> = BehaviorRelay(value: [])
     
-    var onHandProduct: Storage? {
-        didSet {
-            if onHandProduct == nil {
-                delegate?.didUnselectAProduct()
-            } else {
-                delegate?.didSelectAProduct()
-            }
-        }
-    }
+    var onHandProduct: BehaviorRelay<Storage?> = BehaviorRelay(value: nil)
     
     weak var delegate: HomeDelegate?
     
     init(realmService: RealmService) {
         self.realmService = realmService
         storageItems = realmService.realm.objects(Storage.self)
-        super.init()
     }
     
     func take(product: Storage) {
@@ -44,31 +34,31 @@ final class HomePresenter: NSObject {
                                        quantity: 1,
                                        image: product.image)
         selectingProduct.ofCategory = product.ofCategory
-        onHandProduct = selectingProduct
+        onHandProduct.accept(selectingProduct)
     }
     
     func addProductToCart() {
         
-        guard let product = onHandProduct else {
+        guard let product = onHandProduct.value else {
             delegate?.didAddItemToCart(success: false, reloadIndex: nil)
             return
         }
         
         /// if the cart already has this kind of product, increase quantity. Otherwise, add this product to cart
-        if let order = cartItems.firstIndex(where: { $0.id == product.id }) {
-            cartItems[order].quantity += product.quantity
+        if let order = cartItems.value.firstIndex(where: { $0.id == product.id }) {
+            cartItems.value[order].quantity += product.quantity
             delegate?.didAddItemToCart(success: true, reloadIndex: order)
         } else {
-            cartItems.append(product)
+            cartItems.accept(cartItems.value + [product])
             delegate?.didAddItemToCart(success: true, reloadIndex: nil)
         }
         
-        onHandProduct = nil
+        onHandProduct.accept(nil)
         
     }
     
     func saveDB() {
-        for cartItem in cartItems {
+        for cartItem in cartItems.value {
             if let thisItemInSorage = storageItems.first(where: { $0.id == cartItem.id }) {
                 let newQuantity = thisItemInSorage.quantity - cartItem.quantity
                 realmService.update(thisItemInSorage, with: ["quantity": newQuantity])
@@ -76,21 +66,21 @@ final class HomePresenter: NSObject {
                 realmService.add(Transaction(storage: cartItem))
             }
         }
-        cartItems.removeAll()
+        cartItems.accept([])
     }
     
     func totalAmountStr() -> String {
-        return cartItems.reduce(0) { $0 + $1.billing }.addedSeparator()
+        return cartItems.value.reduce(0) { $0 + $1.billing }.addedSeparator()
     }
     
     func pay() {
-        guard !cartItems.isEmpty else {
+        guard !cartItems.value.isEmpty else {
             AlertService.show(in: UIApplication.shared.visibleViewController, msg: R.String.emptyCartMsg)
             return
         }
         
         /// If storage has not enough quantity for all of item in cart, stop and show alert warning.
-        for cartItem in cartItems {
+        for cartItem in cartItems.value {
             if let thisItemInStorage = storageItems.first(where: { $0.id == cartItem.id }) {
                 
                 if cartItem.quantity > thisItemInStorage.quantity {
@@ -103,45 +93,14 @@ final class HomePresenter: NSObject {
             }
         }
         
-        onHandProduct = nil
+        onHandProduct.accept(nil)
         saveDB()
         delegate?.didPay()
     }
     
     func removeCartItem(at index: Int) {
-        cartItems.remove(at: index)
-        delegate?.didRemoveACardItem()
-    }
-}
-
-extension HomePresenter: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cartItems.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(cell: CartCell.self, indexPath: indexPath)
-        cell.configure(product: cartItems[indexPath.row])
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        guard editingStyle == .delete else { return }
-        let alert = UIAlertController(title: nil, message: R.String.removeCartMsg, preferredStyle: .alert)
-        
-        alert.addCancelAction()
-        alert.addOkAction {
-            self.removeCartItem(at: indexPath.row)
-            tableView.beginUpdates()
-            tableView.deleteRows(at: [indexPath], with: .top)
-            tableView.endUpdates()
-        }
-        
-        UIApplication.shared.visibleViewController.present(alert, animated: true, completion: nil)
+        var current = cartItems.value
+        current.remove(at: index)
+        cartItems.accept(current)
     }
 }

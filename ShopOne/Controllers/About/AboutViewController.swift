@@ -4,7 +4,7 @@ import UIKit
 import Anchorage
 import SafariServices
 
-final class AboutViewController: UIViewController {
+final class AboutViewController: ViewController {
     
     private let confettiView = ConfettiView()
     private let stackView = UIStackView()
@@ -33,6 +33,21 @@ final class AboutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        UIView.animate(withDuration: 0.3, animations: {
+            self.stackView.alpha = 1
+        })
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        stackView.alpha = 0
+    }
+    
+    override func setupView() {
         
         // Position
         stackView.axis = .vertical
@@ -53,15 +68,6 @@ final class AboutViewController: UIViewController {
         confettiView.edgeAnchors == view.edgeAnchors
         
         // Properties
-        view.backgroundColor = .background
-        
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(panned(recognizer:)))
-        stackView.addGestureRecognizer(pan)
-        stackView.alpha = 0
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(openGithub))
-        githubImageView.isUserInteractionEnabled = true
-        githubImageView.addGestureRecognizer(tap)
         githubImageView.tintColor = .text
         
         introLabel.numberOfLines = 0
@@ -71,16 +77,14 @@ final class AboutViewController: UIViewController {
         confettiView.isUserInteractionEnabled = false
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        UIView.animate(withDuration: 0.3, animations: {
-            self.stackView.alpha = 1
-        })
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func setupInteraction() {
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(panned(recognizer:)))
+        stackView.addGestureRecognizer(pan)
         stackView.alpha = 0
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(openGithub))
+        githubImageView.isUserInteractionEnabled = true
+        githubImageView.addGestureRecognizer(tap)
     }
     
     private var originalTouchPoint: CGPoint = .zero

@@ -7,7 +7,7 @@ import RealmSwift
 private let stackWidth = UIScreen.main.bounds.width - 180
 private let imageSize = CGSize(width: stackWidth, height: stackWidth)
 
-final class DataControlViewController: UIViewController, UINavigationControllerDelegate {
+final class DataControlViewController: ViewController, UINavigationControllerDelegate {
     enum Action {
         case edit(product: Storage), add
     }
@@ -49,15 +49,11 @@ final class DataControlViewController: UIViewController, UINavigationControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
         addKeyBoardObserver()
         presentationController?.delegate = self
     }
-}
-
-private extension DataControlViewController {
     
-    func setupView() {
+    override func setupView() {
         // MARK: - Position
         let stackView = UIStackView(arrangedSubviews: [profileImageView, nameField, priceField, quantityField, categoryField])
         stackView.axis = .vertical
@@ -82,7 +78,6 @@ private extension DataControlViewController {
         editCategoryButton.leadingAnchor == stackView.trailingAnchor + 5
         
         // MARK: - Properties
-        view.backgroundColor = .background
         
         profileImageView.isUserInteractionEnabled = true
         profileImageView.contentMode = .scaleAspectFill
@@ -97,7 +92,6 @@ private extension DataControlViewController {
         
         editCategoryButton.setImage(UIImage(systemName: "eyedropper"), for: .normal)
         editCategoryButton.tintColor = UIColor.newBlue.withAlphaComponent(0.8)
-        editCategoryButton.addTarget(self, action: #selector(toEditCategory), for: .touchUpInside)
         
         priceField.delegate = self
         priceField.keyboardType = .numberPad
@@ -123,13 +117,26 @@ private extension DataControlViewController {
         }
         
         actionButton.setTitleColor(.newRed, for: .normal)
-        profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectPhoto)))
         
-        view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: .endEditing))
         isModalInPresentation = false
         
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
+    
+    override func setupInteraction() {
+        view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: .endEditing))
+        profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectPhoto)))
+        editCategoryButton.addTarget(self, action: #selector(toEditCategory), for: .touchUpInside)
+        switch currentAction {
+        case .add:
+            actionButton.addTarget(self, action: #selector(addAction), for: .touchUpInside)
+        case .edit:
+            actionButton.addTarget(self, action: #selector(editAction), for: .touchUpInside)
+        }
+    }
+}
+
+private extension DataControlViewController {
     
     func addKeyBoardObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)

@@ -34,7 +34,7 @@ final class HomeViewController: ViewController {
     // MARK: View lyfeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindData()
+        
     }
     
     override func setupView() {
@@ -65,7 +65,6 @@ final class HomeViewController: ViewController {
         
         title = R.String.homeTitle
         
-        cartTableView.dataSource = self
         cartTableView.register(cell: CartCell.self)
         
         topOrderView.quantityField.delegate = self
@@ -109,7 +108,8 @@ final class HomeViewController: ViewController {
         }).disposed(by: rx.disposeBag)
     }
     
-    func bindData() {
+    override func bindData() {
+        // MARK: - Binding
         presenter.cartItems.asObservable().subscribe(onNext: { [weak self] value in
             guard let self = self else { return }
             self.totalAmountLabel.text = R.String.totalAmount + ": " + self.presenter.totalAmountStr()
@@ -126,39 +126,22 @@ final class HomeViewController: ViewController {
             self?.topOrderView.quantityField.text = value?.quantityStr ?? ""
             self?.topOrderView.priceField.text = value?.priceStr ?? ""
         }).disposed(by: rx.disposeBag)
-    }
-}
-
-// MARK: - UITableViewDataSource
-extension HomeViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.cartItems.value.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(cell: CartCell.self, indexPath: indexPath)
-        cell.configure(product: presenter.cartItems.value[indexPath.row])
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        guard editingStyle == .delete else { return }
-        let alert = UIAlertController(title: nil, message: R.String.removeCartMsg, preferredStyle: .alert)
         
-        alert.addCancelAction()
-        alert.addOkAction { [self] in
-            presenter.removeCartItem(at: indexPath.row)
-            tableView.beginUpdates()
-            tableView.deleteRows(at: [indexPath], with: .top)
-            tableView.endUpdates()
-        }
+        // MARK: - UITableViewDataSource
+        presenter.cartItems.asObservable().bind(to: cartTableView.rx.items(cellIdentifier: CartCell.cellId, cellType: CartCell.self)) { (_, element, cell) in
+            cell.configure(product: element)
+        }.disposed(by: rx.disposeBag)
         
-        UIApplication.shared.visibleViewController.present(alert, animated: true, completion: nil)
+        cartTableView.rx.itemDeleted.subscribe(onNext: { [weak self] indexPath in
+            let alert = UIAlertController(title: nil, message: R.String.removeCartMsg, preferredStyle: .alert)
+            
+            alert.addCancelAction()
+            alert.addOkAction {
+                self?.presenter.removeCartItem(at: indexPath.row)
+            }
+            
+            self?.present(alert, animated: true, completion: nil)
+        }).disposed(by: rx.disposeBag)
     }
 }
 
@@ -169,14 +152,7 @@ extension HomeViewController: HomeDelegate {
             showErrorMessage(R.String.pickProductFirst)
             return
         }
-        
-        if let reloadIndex = reloadIndex {
-            cartTableView.reloadRows(at: [IndexPath(row: reloadIndex, section: 0)], with: .automatic)
-        } else {
-            cartTableView.beginUpdates()
-            cartTableView.insertRows(at: [IndexPath(row: presenter.cartItems.value.count - 1, section: 0)], with: .bottom)
-            cartTableView.endUpdates()
-        }
+        cartTableView.reloadData()
         notification.notificationOccurred(.success)
     }
     

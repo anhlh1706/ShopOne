@@ -15,10 +15,12 @@ class ViewController: UIViewController {
         
         setupView()
         setupInteraction()
+        bindData()
     }
     
     func setupView() {}
     func setupInteraction() {}
+    func bindData() {}
     
     func showErrorMessage(_ message: String, delay: TimeInterval = 3) {
         UINotificationFeedbackGenerator().notificationOccurred(.error)

@@ -2,8 +2,6 @@
 
 import UIKit
 import Anchorage
-import RxSwift
-import RxCocoa
 
 final class HomeViewController: ViewController {
     
@@ -160,6 +158,38 @@ extension HomeViewController: HomeDelegate {
     
     func didPay() {
         AlertService.showSuccess(in: self)
+    }
+}
+
+extension HomeViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.cartItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(cell: CartCell.self, indexPath: indexPath)
+        cell.configure(product: presenter.cartItems[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        let alert = UIAlertController(title: nil, message: R.String.removeCartMsg, preferredStyle: .alert)
+        
+        alert.addCancelAction()
+        alert.addOkAction { [self] in
+            presenter.removeCartItem(at: indexPath.row)
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .top)
+            tableView.endUpdates()
+        }
+        
+        UIApplication.shared.visibleViewController.present(alert, animated: true, completion: nil)
     }
 }
 

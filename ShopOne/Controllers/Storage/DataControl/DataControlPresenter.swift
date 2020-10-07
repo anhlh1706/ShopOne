@@ -1,6 +1,6 @@
 /// Bym
 
-import Foundation
+import UIKit
 import RealmSwift
 
 protocol DataControlDelegate: AnyObject {

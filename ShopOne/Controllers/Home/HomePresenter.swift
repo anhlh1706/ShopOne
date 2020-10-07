@@ -1,6 +1,6 @@
 /// Bym
 
-import Foundation
+import UIKit.UIApplication
 import RealmSwift
 import RxSwift
 import RxCocoa

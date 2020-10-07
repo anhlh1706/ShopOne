@@ -3,11 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CAC6DF8FEEDDFF0F885C5FD3 /* Pods_ShopOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FCC856C2DDF5AA95A0879C1 /* Pods_ShopOne.framework */; };
+		E6249989252D5BC2002766C2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = E6249988252D5BC2002766C2 /* Lottie */; };
+		E62499A3252D5CC5002766C2 /* SkyFloatingLabelTextField in Frameworks */ = {isa = PBXBuildFile; productRef = E62499A2252D5CC5002766C2 /* SkyFloatingLabelTextField */; };
+		E62499AC252D5E63002766C2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E62499AB252D5E63002766C2 /* Realm */; };
+		E62499AE252D5E63002766C2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E62499AD252D5E63002766C2 /* RealmSwift */; };
+		E62499B3252D5F66002766C2 /* Anchorage in Frameworks */ = {isa = PBXBuildFile; productRef = E62499B2252D5F66002766C2 /* Anchorage */; };
 		E644B0A024BFE4DA007437F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E644B09F24BFE4DA007437F7 /* Assets.xcassets */; };
 		E644B0A324BFE4DA007437F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E644B0A124BFE4DA007437F7 /* LaunchScreen.storyboard */; };
 		E644B0F324BFE5B6007437F7 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = E644B0AB24BFE5B4007437F7 /* Label.swift */; };
@@ -69,13 +73,9 @@
 		E644B12C24BFE5B6007437F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E644B0F224BFE5B6007437F7 /* SceneDelegate.swift */; };
 		E644B12F24BFE5C3007437F7 /* runningCar.json in Resources */ = {isa = PBXBuildFile; fileRef = E644B12E24BFE5C3007437F7 /* runningCar.json */; };
 		E644B13224BFE9D1007437F7 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E644B13124BFE9D1007437F7 /* Colors.xcassets */; };
-		E644B13A24C04AD1007437F7 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E644B13924C04AD1007437F7 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6DDEC03F292AC39CD4EF4BA0 /* Pods-ShopOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopOne.debug.xcconfig"; path = "Target Support Files/Pods-ShopOne/Pods-ShopOne.debug.xcconfig"; sourceTree = "<group>"; };
-		8FCC856C2DDF5AA95A0879C1 /* Pods_ShopOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABDD4794D000C7968A0E8132 /* Pods-ShopOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopOne.release.xcconfig"; path = "Target Support Files/Pods-ShopOne/Pods-ShopOne.release.xcconfig"; sourceTree = "<group>"; };
 		E644B09324BFE4D7007437F7 /* ShopOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E644B09F24BFE4DA007437F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E644B0A224BFE4DA007437F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -139,11 +139,6 @@
 		E644B0F224BFE5B6007437F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E644B12E24BFE5C3007437F7 /* runningCar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = runningCar.json; sourceTree = "<group>"; };
 		E644B13124BFE9D1007437F7 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		E644B13624C04484007437F7 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		E644B13824C04A8F007437F7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		E644B13924C04AD1007437F7 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		E64909B424C156220038255F /* Testflight.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Testflight.xcconfig; sourceTree = "<group>"; };
-		FC032FD95FD47C56159F8135 /* Pods-ShopOne.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopOne.testflight.xcconfig"; path = "Target Support Files/Pods-ShopOne/Pods-ShopOne.testflight.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,30 +146,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAC6DF8FEEDDFF0F885C5FD3 /* Pods_ShopOne.framework in Frameworks */,
+				E62499AE252D5E63002766C2 /* RealmSwift in Frameworks */,
+				E62499B3252D5F66002766C2 /* Anchorage in Frameworks */,
+				E62499AC252D5E63002766C2 /* Realm in Frameworks */,
+				E6249989252D5BC2002766C2 /* Lottie in Frameworks */,
+				E62499A3252D5CC5002766C2 /* SkyFloatingLabelTextField in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5ACB22A17634F9E7F0C7DA31 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6DDEC03F292AC39CD4EF4BA0 /* Pods-ShopOne.debug.xcconfig */,
-				ABDD4794D000C7968A0E8132 /* Pods-ShopOne.release.xcconfig */,
-				FC032FD95FD47C56159F8135 /* Pods-ShopOne.testflight.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		E644B08A24BFE4D7007437F7 = {
 			isa = PBXGroup;
 			children = (
 				E644B09524BFE4D7007437F7 /* ShopOne */,
 				E644B09424BFE4D7007437F7 /* Products */,
-				5ACB22A17634F9E7F0C7DA31 /* Pods */,
-				F327F9965982C8B3FFE85724 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -189,7 +176,6 @@
 		E644B09524BFE4D7007437F7 /* ShopOne */ = {
 			isa = PBXGroup;
 			children = (
-				E644B13524C04474007437F7 /* Config */,
 				E644B0EE24BFE5B6007437F7 /* Application */,
 				E644B0D424BFE5B5007437F7 /* Models */,
 				E644B0B724BFE5B5007437F7 /* Controllers */,
@@ -376,25 +362,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		E644B13524C04474007437F7 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				E644B13624C04484007437F7 /* Debug.xcconfig */,
-				E64909B424C156220038255F /* Testflight.xcconfig */,
-				E644B13824C04A8F007437F7 /* Release.xcconfig */,
-				E644B13924C04AD1007437F7 /* Config.swift */,
-			);
-			path = Config;
-			sourceTree = "<group>";
-		};
-		F327F9965982C8B3FFE85724 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8FCC856C2DDF5AA95A0879C1 /* Pods_ShopOne.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -402,11 +369,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E644B0A724BFE4DA007437F7 /* Build configuration list for PBXNativeTarget "ShopOne" */;
 			buildPhases = (
-				5C96D4C9C49AE8D816A8F4D5 /* [CP] Check Pods Manifest.lock */,
 				E644B08F24BFE4D7007437F7 /* Sources */,
 				E644B09024BFE4D7007437F7 /* Frameworks */,
 				E644B09124BFE4D7007437F7 /* Resources */,
-				57C0BBD15699E5CB497E645A /* [CP] Embed Pods Frameworks */,
 				E665277C24CE76340062780D /* Swiftlint */,
 			);
 			buildRules = (
@@ -414,6 +379,13 @@
 			dependencies = (
 			);
 			name = ShopOne;
+			packageProductDependencies = (
+				E6249988252D5BC2002766C2 /* Lottie */,
+				E62499A2252D5CC5002766C2 /* SkyFloatingLabelTextField */,
+				E62499AB252D5E63002766C2 /* Realm */,
+				E62499AD252D5E63002766C2 /* RealmSwift */,
+				E62499B2252D5F66002766C2 /* Anchorage */,
+			);
 			productName = ShopOne;
 			productReference = E644B09324BFE4D7007437F7 /* ShopOne.app */;
 			productType = "com.apple.product-type.application";
@@ -441,6 +413,12 @@
 				Base,
 			);
 			mainGroup = E644B08A24BFE4D7007437F7;
+			packageReferences = (
+				E6249987252D5BC2002766C2 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				E62499A1252D5CC5002766C2 /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */,
+				E62499AA252D5E63002766C2 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				E62499B1252D5F66002766C2 /* XCRemoteSwiftPackageReference "Anchorage" */,
+			);
 			productRefGroup = E644B09424BFE4D7007437F7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -465,45 +443,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		57C0BBD15699E5CB497E645A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ShopOne/Pods-ShopOne-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ShopOne/Pods-ShopOne-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShopOne/Pods-ShopOne-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5C96D4C9C49AE8D816A8F4D5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ShopOne-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E665277C24CE76340062780D /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -580,7 +519,6 @@
 				E644B10D24BFE5B6007437F7 /* MainTabbarController.swift in Sources */,
 				E644B11D24BFE5B6007437F7 /* UIStackView.swift in Sources */,
 				E644B11B24BFE5B6007437F7 /* UIView.swift in Sources */,
-				E644B13A24C04AD1007437F7 /* Config.swift in Sources */,
 				E644B11424BFE5B6007437F7 /* RealmService.swift in Sources */,
 				E644B10624BFE5B6007437F7 /* CategoryViewController.swift in Sources */,
 				E644B11524BFE5B6007437F7 /* Category.swift in Sources */,
@@ -606,7 +544,6 @@
 /* Begin XCBuildConfiguration section */
 		E644B0A524BFE4DA007437F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E644B13624C04484007437F7 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -668,7 +605,6 @@
 		};
 		E644B0A624BFE4DA007437F7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E644B13824C04A8F007437F7 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -724,7 +660,6 @@
 		};
 		E644B0A824BFE4DA007437F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E644B13624C04484007437F7 /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -748,7 +683,6 @@
 		};
 		E644B0A924BFE4DA007437F7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E644B13824C04A8F007437F7 /* Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -772,7 +706,6 @@
 		};
 		E644B13324C03C6B007437F7 /* Testflight */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E64909B424C156220038255F /* Testflight.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -834,7 +767,6 @@
 		};
 		E644B13424C03C6B007437F7 /* Testflight */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E64909B424C156220038255F /* Testflight.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -880,6 +812,69 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E6249987252D5BC2002766C2 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.8;
+			};
+		};
+		E62499A1252D5CC5002766C2 /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Skyscanner/SkyFloatingLabelTextField";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.8.0;
+			};
+		};
+		E62499AA252D5E63002766C2 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.8;
+			};
+		};
+		E62499B1252D5F66002766C2 /* XCRemoteSwiftPackageReference "Anchorage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Rightpoint/Anchorage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E6249988252D5BC2002766C2 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E6249987252D5BC2002766C2 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		E62499A2252D5CC5002766C2 /* SkyFloatingLabelTextField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E62499A1252D5CC5002766C2 /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */;
+			productName = SkyFloatingLabelTextField;
+		};
+		E62499AB252D5E63002766C2 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E62499AA252D5E63002766C2 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		E62499AD252D5E63002766C2 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E62499AA252D5E63002766C2 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+		E62499B2252D5F66002766C2 /* Anchorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E62499B1252D5F66002766C2 /* XCRemoteSwiftPackageReference "Anchorage" */;
+			productName = Anchorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E644B08B24BFE4D7007437F7 /* Project object */;
 }

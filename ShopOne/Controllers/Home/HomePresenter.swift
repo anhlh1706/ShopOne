@@ -1,6 +1,6 @@
 /// Bym
 
-import Foundation
+import UIKit.UIApplication
 import RealmSwift
 
 protocol HomeDelegate: AnyObject {
@@ -11,7 +11,7 @@ protocol HomeDelegate: AnyObject {
     func didUnselectAProduct()
 }
 
-final class HomePresenter: NSObject {
+final class HomePresenter {
     
     let realmService: RealmService
     
@@ -34,7 +34,6 @@ final class HomePresenter: NSObject {
     init(realmService: RealmService) {
         self.realmService = realmService
         storageItems = realmService.realm.objects(Storage.self)
-        super.init()
     }
     
     func take(product: Storage) {
@@ -111,37 +110,5 @@ final class HomePresenter: NSObject {
     func removeCartItem(at index: Int) {
         cartItems.remove(at: index)
         delegate?.didRemoveACardItem()
-    }
-}
-
-extension HomePresenter: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cartItems.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(cell: CartCell.self, indexPath: indexPath)
-        cell.configure(product: cartItems[indexPath.row])
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        guard editingStyle == .delete else { return }
-        let alert = UIAlertController(title: nil, message: R.String.removeCartMsg, preferredStyle: .alert)
-        
-        alert.addCancelAction()
-        alert.addOkAction {
-            self.removeCartItem(at: indexPath.row)
-            tableView.beginUpdates()
-            tableView.deleteRows(at: [indexPath], with: .top)
-            tableView.endUpdates()
-        }
-        
-        UIApplication.shared.visibleViewController.present(alert, animated: true, completion: nil)
     }
 }

@@ -1,0 +1,52 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Anchorage",
+        "repositoryURL": "https://github.com/Rightpoint/Anchorage",
+        "state": {
+          "branch": null,
+          "revision": "18fed38e95db3200aecbd5b7101b981f91656084",
+          "version": "4.4.0"
+        }
+      },
+      {
+        "package": "Lottie",
+        "repositoryURL": "https://github.com/airbnb/lottie-ios",
+        "state": {
+          "branch": null,
+          "revision": "4e5877425dae5c10792fc9d22d53dc6bf6824dc1",
+          "version": "3.1.8"
+        }
+      },
+      {
+        "package": "Realm",
+        "repositoryURL": "https://github.com/realm/realm-cocoa",
+        "state": {
+          "branch": null,
+          "revision": "96d5d28f9fd35bd5b109da376bfdc3194cd2794a",
+          "version": "5.4.8"
+        }
+      },
+      {
+        "package": "RealmCore",
+        "repositoryURL": "https://github.com/realm/realm-core",
+        "state": {
+          "branch": null,
+          "revision": "612057010f5521d41559970306054f4c5b12632a",
+          "version": "6.1.4"
+        }
+      },
+      {
+        "package": "SkyFloatingLabelTextField",
+        "repositoryURL": "https://github.com/Skyscanner/SkyFloatingLabelTextField",
+        "state": {
+          "branch": null,
+          "revision": "82c0bbbc4e1368901b171292c220690273460f4b",
+          "version": "3.8.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

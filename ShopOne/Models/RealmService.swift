@@ -1,6 +1,6 @@
 /// Bym
 
-import Foundation
+import UIKit.UIViewController
 import RealmSwift
 
 final class RealmService {

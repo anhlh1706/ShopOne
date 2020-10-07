@@ -73,6 +73,14 @@
 		E644B12C24BFE5B6007437F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E644B0F224BFE5B6007437F7 /* SceneDelegate.swift */; };
 		E644B12F24BFE5C3007437F7 /* runningCar.json in Resources */ = {isa = PBXBuildFile; fileRef = E644B12E24BFE5C3007437F7 /* runningCar.json */; };
 		E644B13224BFE9D1007437F7 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E644B13124BFE9D1007437F7 /* Colors.xcassets */; };
+		E682A4B4252D9F8900D37302 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D49D6F252B29DB0024DE22 /* ViewController.swift */; };
+		E682A4B6252D9F9F00D37302 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E699CF71252C2A0300F7C654 /* AppHelper.swift */; };
+		E6ACE431252D7D71000CB42C /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E6ACE430252D7D71000CB42C /* RxSwift */; };
+		E6ACE433252D7D71000CB42C /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = E6ACE432252D7D71000CB42C /* RxRelay */; };
+		E6ACE435252D7D71000CB42C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E6ACE434252D7D71000CB42C /* RxCocoa */; };
+		E6ACE437252D7D71000CB42C /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = E6ACE436252D7D71000CB42C /* RxBlocking */; };
+		E6ACE43B252D7DC5000CB42C /* NSObject-Rx in Frameworks */ = {isa = PBXBuildFile; productRef = E6ACE43A252D7DC5000CB42C /* NSObject-Rx */; };
+		E6ACE43F252D7E1C000CB42C /* RxSwiftExt in Frameworks */ = {isa = PBXBuildFile; productRef = E6ACE43E252D7E1C000CB42C /* RxSwiftExt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,13 +147,8 @@
 		E644B0F224BFE5B6007437F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E644B12E24BFE5C3007437F7 /* runningCar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = runningCar.json; sourceTree = "<group>"; };
 		E644B13124BFE9D1007437F7 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		E644B13624C04484007437F7 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		E644B13824C04A8F007437F7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		E644B13924C04AD1007437F7 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		E64909B424C156220038255F /* Testflight.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Testflight.xcconfig; sourceTree = "<group>"; };
 		E699CF71252C2A0300F7C654 /* AppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
 		E6D49D6F252B29DB0024DE22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FC032FD95FD47C56159F8135 /* Pods-ShopOne.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopOne.testflight.xcconfig"; path = "Target Support Files/Pods-ShopOne/Pods-ShopOne.testflight.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,10 +156,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6ACE431252D7D71000CB42C /* RxSwift in Frameworks */,
+				E6ACE437252D7D71000CB42C /* RxBlocking in Frameworks */,
 				E62499AE252D5E63002766C2 /* RealmSwift in Frameworks */,
+				E6ACE433252D7D71000CB42C /* RxRelay in Frameworks */,
+				E6ACE43B252D7DC5000CB42C /* NSObject-Rx in Frameworks */,
+				E6ACE43F252D7E1C000CB42C /* RxSwiftExt in Frameworks */,
 				E62499B3252D5F66002766C2 /* Anchorage in Frameworks */,
 				E62499AC252D5E63002766C2 /* Realm in Frameworks */,
 				E6249989252D5BC2002766C2 /* Lottie in Frameworks */,
+				E6ACE435252D7D71000CB42C /* RxCocoa in Frameworks */,
 				E62499A3252D5CC5002766C2 /* SkyFloatingLabelTextField in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,7 +390,6 @@
 				E644B08F24BFE4D7007437F7 /* Sources */,
 				E644B09024BFE4D7007437F7 /* Frameworks */,
 				E644B09124BFE4D7007437F7 /* Resources */,
-				E665277C24CE76340062780D /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -394,6 +402,12 @@
 				E62499AB252D5E63002766C2 /* Realm */,
 				E62499AD252D5E63002766C2 /* RealmSwift */,
 				E62499B2252D5F66002766C2 /* Anchorage */,
+				E6ACE430252D7D71000CB42C /* RxSwift */,
+				E6ACE432252D7D71000CB42C /* RxRelay */,
+				E6ACE434252D7D71000CB42C /* RxCocoa */,
+				E6ACE436252D7D71000CB42C /* RxBlocking */,
+				E6ACE43A252D7DC5000CB42C /* NSObject-Rx */,
+				E6ACE43E252D7E1C000CB42C /* RxSwiftExt */,
 			);
 			productName = ShopOne;
 			productReference = E644B09324BFE4D7007437F7 /* ShopOne.app */;
@@ -427,6 +441,9 @@
 				E62499A1252D5CC5002766C2 /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */,
 				E62499AA252D5E63002766C2 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				E62499B1252D5F66002766C2 /* XCRemoteSwiftPackageReference "Anchorage" */,
+				E6ACE42F252D7D71000CB42C /* XCRemoteSwiftPackageReference "RxSwift" */,
+				E6ACE439252D7DC5000CB42C /* XCRemoteSwiftPackageReference "NSObject-Rx" */,
+				E6ACE43D252D7E1C000CB42C /* XCRemoteSwiftPackageReference "RxSwiftExt" */,
 			);
 			productRefGroup = E644B09424BFE4D7007437F7 /* Products */;
 			projectDirPath = "";
@@ -451,27 +468,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		E665277C24CE76340062780D /* Swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Swiftlint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		E644B08F24BFE4D7007437F7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -488,7 +484,6 @@
 				E644B11F24BFE5B6007437F7 /* UICollectionView.swift in Sources */,
 				E644B11A24BFE5B6007437F7 /* Date+Formatter.swift in Sources */,
 				E644B0F524BFE5B6007437F7 /* NoDataView.swift in Sources */,
-				E6D49D70252B29DB0024DE22 /* ViewController.swift in Sources */,
 				E644B11924BFE5B6007437F7 /* AlertService.swift in Sources */,
 				E644B11724BFE5B6007437F7 /* Transaction.swift in Sources */,
 				E644B0FE24BFE5B6007437F7 /* StorageSectionHeaderView.swift in Sources */,
@@ -498,6 +493,7 @@
 				E644B12424BFE5B6007437F7 /* String.swift in Sources */,
 				E644B10824BFE5B6007437F7 /* StoragePresenter.swift in Sources */,
 				E644B10E24BFE5B6007437F7 /* TransactionCell.swift in Sources */,
+				E682A4B4252D9F8900D37302 /* ViewController.swift in Sources */,
 				E644B10124BFE5B6007437F7 /* HomeSelectViewController.swift in Sources */,
 				E644B10924BFE5B6007437F7 /* StorageViewController.swift in Sources */,
 				E644B0FF24BFE5B6007437F7 /* HomeViewController.swift in Sources */,
@@ -531,7 +527,7 @@
 				E644B11B24BFE5B6007437F7 /* UIView.swift in Sources */,
 				E644B11424BFE5B6007437F7 /* RealmService.swift in Sources */,
 				E644B10624BFE5B6007437F7 /* CategoryViewController.swift in Sources */,
-				E699CF72252C2A0300F7C654 /* AppHelper.swift in Sources */,
+				E682A4B6252D9F9F00D37302 /* AppHelper.swift in Sources */,
 				E644B11524BFE5B6007437F7 /* Category.swift in Sources */,
 				E644B10424BFE5B6007437F7 /* AddCategoryCell.swift in Sources */,
 				E644B11024BFE5B6007437F7 /* IconTableViewCell.swift in Sources */,
@@ -857,6 +853,30 @@
 				minimumVersion = 4.4.0;
 			};
 		};
+		E6ACE42F252D7D71000CB42C /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+		E6ACE439252D7DC5000CB42C /* XCRemoteSwiftPackageReference "NSObject-Rx" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/NSObject-Rx";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+		E6ACE43D252D7E1C000CB42C /* XCRemoteSwiftPackageReference "RxSwiftExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxSwiftExt";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -884,6 +904,36 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E62499B1252D5F66002766C2 /* XCRemoteSwiftPackageReference "Anchorage" */;
 			productName = Anchorage;
+		};
+		E6ACE430252D7D71000CB42C /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E6ACE42F252D7D71000CB42C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		E6ACE432252D7D71000CB42C /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E6ACE42F252D7D71000CB42C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		E6ACE434252D7D71000CB42C /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E6ACE42F252D7D71000CB42C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		E6ACE436252D7D71000CB42C /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E6ACE42F252D7D71000CB42C /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		E6ACE43A252D7DC5000CB42C /* NSObject-Rx */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E6ACE439252D7DC5000CB42C /* XCRemoteSwiftPackageReference "NSObject-Rx" */;
+			productName = "NSObject-Rx";
+		};
+		E6ACE43E252D7E1C000CB42C /* RxSwiftExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E6ACE43D252D7E1C000CB42C /* XCRemoteSwiftPackageReference "RxSwiftExt" */;
+			productName = RxSwiftExt;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

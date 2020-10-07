@@ -20,6 +20,15 @@
         }
       },
       {
+        "package": "NSObject-Rx",
+        "repositoryURL": "https://github.com/RxSwiftCommunity/NSObject-Rx",
+        "state": {
+          "branch": null,
+          "revision": "3dc30072b740ec35a3949ac8a8217f590a7c59b7",
+          "version": "5.1.1"
+        }
+      },
+      {
         "package": "Realm",
         "repositoryURL": "https://github.com/realm/realm-cocoa",
         "state": {
@@ -35,6 +44,24 @@
           "branch": null,
           "revision": "612057010f5521d41559970306054f4c5b12632a",
           "version": "6.1.4"
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift",
+        "state": {
+          "branch": null,
+          "revision": "002d325b0bdee94e7882e1114af5ff4fe1e96afa",
+          "version": "5.1.1"
+        }
+      },
+      {
+        "package": "RxSwiftExt",
+        "repositoryURL": "https://github.com/RxSwiftCommunity/RxSwiftExt",
+        "state": {
+          "branch": null,
+          "revision": "9620cd55a58c1cf3370375140c45379c40049f55",
+          "version": "5.2.0"
         }
       },
       {

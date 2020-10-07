@@ -66,6 +66,7 @@ final class HomeViewController: ViewController {
         title = R.String.homeTitle
         
         cartTableView.register(cell: CartCell.self)
+        cartTableView.showsVerticalScrollIndicator = false
         
         topOrderView.quantityField.delegate = self
         
@@ -112,6 +113,7 @@ final class HomeViewController: ViewController {
         // MARK: - Binding
         presenter.cartItems.asObservable().subscribe(onNext: { [weak self] value in
             guard let self = self else { return }
+            self.cartTableView.reloadData()
             self.totalAmountLabel.text = R.String.totalAmount + ": " + self.presenter.totalAmountStr()
             self.isPayButtonEnabled.accept(!value.isEmpty)
         }).disposed(by: rx.disposeBag)
@@ -148,19 +150,16 @@ final class HomeViewController: ViewController {
 // MARK: - ViewModel Delegate
 extension HomeViewController: HomeDelegate {
     func didAddItemToCart(success: Bool, reloadIndex: Int?) {
-        guard success else {
+        if !success {
             showErrorMessage(R.String.pickProductFirst)
-            return
         }
-        cartTableView.reloadData()
-        notification.notificationOccurred(.success)
+        if let reloadIndex = reloadIndex {
+            cartTableView.reloadRows(at: [IndexPath(row: reloadIndex, section: 0)], with: .none)
+        }
     }
     
     func didPay() {
-        cartTableView.reloadData()
-        
         AlertService.showSuccess(in: self)
-        notification.notificationOccurred(.success)
     }
 }
 
